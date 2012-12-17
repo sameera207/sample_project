@@ -5,15 +5,21 @@
 bundle install
 
 rake db:migrate
+
 rake db:seed
 
 === functionality
 
 goto home page
-select project1 
+
+select project1
+ 
 then you will see some sample todos
-add due string 
+
+add due string
+ 
 click on 'update project todo'
+
 you should see the updated project todo via ajax
 
 === no teste included
