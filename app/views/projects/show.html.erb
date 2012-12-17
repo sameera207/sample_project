@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @project.name %>
+</h1>
+
+<div>
+	<table>
+	<%@todos.each do |todo|%>
+	<tr>
+		<td>
+			<%= todo.name%>
+		</td>
+		<td>
+			Due :
+			<%= form_for todo, :remote => true, :url => update_todo_project_path, :html => {:id => "todo#{todo.id}" } do |f| %>
+				<%= f.hidden_field :id %>
+				<%= f.text_field :due %>
+				<%= f.submit %>
+			<% end %>	
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div id="showtodo<%= todo.id%>">
+				
+			</div>
+		</td>
+	</tr>
+	<% end %>
+	</table>
+</div>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
